@@ -6,7 +6,7 @@
 /*   By: bmellon <bmellon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 15:27:52 by bmellon           #+#    #+#             */
-/*   Updated: 2020/10/20 18:28:06 by bmellon          ###   ########.fr       */
+/*   Updated: 2020/10/21 17:55:29 by bmellon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ typedef	struct		s_hash_flags
 typedef	struct		s_hash
 {
 	t_hash_flags	flags;
-	size_t			hash_len;
-	void			*hash;
+	size_t			len;
+	int				append;
+	char			*hash;
+	char			*to_hash;
 }					t_hash;
 #endif

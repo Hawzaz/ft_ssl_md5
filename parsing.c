@@ -6,7 +6,7 @@
 /*   By: bmellon <bmellon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 15:30:15 by bmellon           #+#    #+#             */
-/*   Updated: 2020/10/20 19:18:53 by bmellon          ###   ########.fr       */
+/*   Updated: 2020/10/21 17:57:25 by bmellon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		usage(int mode, char *str)
 	}
 	return (1);
 }
-t_hash	catch_flags(int comm, char **args, t_hash *hash)
+void	catch_flags(int comm, char **args, t_hash *hash)
 {
 	int		i;
 
@@ -42,6 +42,13 @@ t_hash	catch_flags(int comm, char **args, t_hash *hash)
 			usage(2, args[i]);
 		i++;
 	}
+	hash->to_hash = args[i];
+}
+
+void	making_hash(t_hash hash)
+{
+	hash.len = ft_stlen(hash.to_hash);
+	while (hash.len)
 }
 
 void	parse(char **args)
@@ -49,12 +56,16 @@ void	parse(char **args)
 	int			i;
 	static char	*fcts[] = {"md5", "sha256"};
 	t_hash		hash;
-	
+	int			j;
+
 	i = 0;
 	while (i < (sizeof(fcts)/sizeof(fcts[0])))
 	{
 		if (ft_strcmp(fcts[i], args[1]))
+		{
 			catch_flags(i, args, &hash);
+			making_hash(hash);
+		}
 		i++;
 	}
 	usage(1, args[1]);
