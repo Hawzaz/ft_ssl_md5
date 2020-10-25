@@ -6,16 +6,16 @@
 /*   By: bmellon <bmellon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 15:27:15 by bmellon           #+#    #+#             */
-/*   Updated: 2020/10/20 15:36:49 by bmellon          ###   ########.fr       */
+/*   Updated: 2020/10/25 17:45:45 by bmellon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_ssl.h"
+#include "include/ft_ssl.h"
 
 int main(int ac, char **av)
 {
-	if (ac <= 2)
-		return (usage());
+	if (ac < 2)
+		return (usage(0, NULL));
 	else
 		parse(av);
 	return (1);

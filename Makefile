@@ -6,7 +6,7 @@
 #    By: bmellon <bmellon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/20 14:55:17 by bmellon           #+#    #+#              #
-#    Updated: 2020/10/20 15:07:03 by bmellon          ###   ########.fr        #
+#    Updated: 2020/10/25 14:05:44 by bmellon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	=	ft_ssl
 
 CC		=	gcc
 
-SRC		=	main.c
+SRC		=	main.c parsing.c
 
 OBJ		=	$(SRC:.c=.o)
 
@@ -28,7 +28,8 @@ precomp	:
 			@make -C libft/
 
 $(NAME)	:	$(OBJ)
-			@gcc -o $@ $^ -Llibft/ -lft
+			@cp libft/libftprintf.a ./$(NAME)
+			@gcc -o $@ $^ -Llibft/ -lftprintf
 			@echo $(NAME) compiled !
 
 %.o: 		%.c
